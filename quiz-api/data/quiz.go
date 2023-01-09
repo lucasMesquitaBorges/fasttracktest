@@ -47,8 +47,8 @@ func VerifyAnswers(answers []string) int {
 		return -1
 	}
 	// Loop through all questions
-	for k, v := range quiz {
-		if answers[k] == v.Answer {
+	for k, v := range answers {
+		if quiz[k].Answer == v {
 			crtAns++
 		}
 	}

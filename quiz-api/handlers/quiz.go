@@ -50,7 +50,7 @@ func (q *Quiz) AnswerQuiz(c echo.Context) error {
 	}
 
 	if quizAns.Answers == nil {
-		return c.String(http.StatusBadRequest, "Bad Request: Wrong format")
+		return echo.NewHTTPError(http.StatusBadRequest)
 	}
 
 	strResult, err := verifyRecords(context.Background(), quizAns)
