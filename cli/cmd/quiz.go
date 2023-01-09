@@ -10,8 +10,8 @@ import (
 // quizCmd represents the quiz command
 var quizCmd = &cobra.Command{
 	Use:   "quiz",
-	Short: "A brief description of your command",
-	Long:  `asdasdasd`,
+	Short: "Talks to with the API to manage Quiz",
+	Long:  `Talks to with the API to manage Quiz`,
 }
 
 func init() {

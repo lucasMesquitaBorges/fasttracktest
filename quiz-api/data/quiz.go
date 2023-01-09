@@ -14,7 +14,7 @@ type Quiz []Question
 // Question is the structure to organize the quiz questions data
 type Question struct {
 	Text    string `json:"text"`
-	Answer  string `json:"answer"`
+	Answer  string `json:"-"`
 	Choices []Choice
 }
 

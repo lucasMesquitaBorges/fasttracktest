@@ -8,8 +8,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"
@@ -30,7 +32,6 @@ type Quiz []Question
 // Question is the structure to organize the quiz questions data
 type Question struct {
 	Text    string `json:"text"`
-	Answer  string `json:"answer"`
 	Choices []Choice
 }
 
@@ -56,7 +57,10 @@ func promptSelectAnswer(q Question) string {
 		q.Choices[2].Text,
 		q.Choices[3].Text,
 	}
-
+	rand.Seed(time.Now().UnixNano())
+	rand.Shuffle(len(items), func(i, j int) {
+		items[i], items[j] = items[j], items[i]
+	})
 	var result string
 
 	prompt := promptui.Select{
